@@ -13,6 +13,23 @@
 #include<conio.h>
 using namespace std;
 
+void decodificar(char *mensaje, int *decod, int tam){
+	
+	int posicion=0;
+	
+	for(int i=0;i<tam;i++){
+		posicion = (posicion + *(decod + i)) % 53;
+	
+	
+	    if (posicion < 0)
+            posicion += 53;
+        
+
+        cout << *(mensaje + posicion);
+}
+}
+
+
 int main() {
 
     char mensajeCifrado[] = {
@@ -21,6 +38,10 @@ int main() {
         'b','c','d','f','g','h','j','k','l','m','n','p','q','r','s','t','v','w','x','y','z'
     };
     int decodificador[] = { 2,17,-19,2,48,-44,35,-34,35,-42,2,44,1,-41,-6,2,4,40,5};
-    //Seguir desde aqui el codigo a implementar
+    
+    
+    decodificar(mensajeCifrado,decodificador,19);
+    
+    
 	return 0;
 }
